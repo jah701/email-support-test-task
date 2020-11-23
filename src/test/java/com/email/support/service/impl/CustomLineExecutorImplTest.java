@@ -34,6 +34,13 @@ class CustomLineExecutorImplTest {
         List<String> lines = reader.readFile(CORRECT_PATH);
         List<Line> parseLines = parser.parseLines(lines);
         String actual = executor.execute(parseLines);
-        Assertions.assertEquals(7, actual.length());
+        Assertions.assertEquals("83\n100\n-\n", actual);
+    }
+
+    @Test
+    public void parseMethodTest_ok() {
+        List<String> lines = reader.readFile(CORRECT_PATH);
+        List<Line> parseLines = parser.parseLines(lines);
+        Assertions.assertEquals(7, parseLines.size());
     }
 }

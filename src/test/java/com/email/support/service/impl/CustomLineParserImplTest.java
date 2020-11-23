@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 
 class CustomLineParserImplTest {
     private static final String CORRECT_PATH = "src/test/java/resources/file.txt";
-
     private static LineMapper mapper;
     private static CustomLineParser parser;
     private static CustomFileReader reader;

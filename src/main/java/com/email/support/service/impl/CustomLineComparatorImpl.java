@@ -16,9 +16,9 @@ public class CustomLineComparatorImpl implements CustomLineComparator {
                 .equals(timeline.getServiceId().split("")[ZERO_INDEX])) {
             return false;
         }
-        if (!timeline.getQuestionType().equals("*")
-                && !queryLine.getQuestionType().split("")[ZERO_INDEX]
-                .equals(timeline.getQuestionType().split("")[ZERO_INDEX])) {
+        if (!queryLine.getQuestionType().equals("*")
+                && !timeline.getQuestionType().split("")[ZERO_INDEX]
+                .equals(queryLine.getQuestionType().split("")[ZERO_INDEX])) {
             return false;
         }
         if (!queryLine.getResponseType().split("")[ZERO_INDEX]

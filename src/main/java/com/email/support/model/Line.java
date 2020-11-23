@@ -1,12 +1,19 @@
 package com.email.support.model;
 
-public abstract class Line {
+public class Line {
     private String serviceId;
     private String questionType;
     private String responseType;
     private String date;
 
     public Line() {
+    }
+
+    public Line(String serviceId, String questionType, String responseType, String date) {
+        this.serviceId = serviceId;
+        this.questionType = questionType;
+        this.responseType = responseType;
+        this.date = date;
     }
 
     public String getServiceId() {

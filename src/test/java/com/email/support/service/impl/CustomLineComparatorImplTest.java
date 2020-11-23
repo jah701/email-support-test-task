@@ -46,25 +46,25 @@ class CustomLineComparatorImplTest {
 
         Line queryLine3 = new QueryLine();
         queryLine3.setServiceId("1.1");
-        queryLine3.setQuestionType("2.3");
+        queryLine3.setQuestionType("*");
         queryLine3.setResponseType("P");
         queryLine3.setDate("22.09.2000");
 
         Line timeline3 = new WaitingTimeline();
         timeline3.setServiceId("1.4");
-        timeline3.setQuestionType("*");
+        timeline3.setQuestionType("2.3");
         timeline3.setResponseType("N");
         timeline3.setDate("22.09.2000");
 
         Line queryLine4 = new QueryLine();
         queryLine4.setServiceId("1.1");
-        queryLine4.setQuestionType("2.3");
+        queryLine4.setQuestionType("*");
         queryLine4.setResponseType("P");
         queryLine4.setDate("22.09.2000");
 
         Line timeline4 = new WaitingTimeline();
         timeline4.setServiceId("1.4");
-        timeline4.setQuestionType("*");
+        timeline4.setQuestionType("6.9.1");
         timeline4.setResponseType("P");
         timeline4.setDate("22.09.2000");
 

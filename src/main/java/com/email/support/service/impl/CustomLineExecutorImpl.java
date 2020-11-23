@@ -22,11 +22,9 @@ public class CustomLineExecutorImpl implements CustomLineExecutor {
                 int minutes = 0;
                 int counter = 0;
                 for (int timelineIndex = 0; timelineIndex < queryLineIndex; timelineIndex++) {
-                    if (lines.get(timelineIndex).getClass().equals(QueryLine.class)) {
-                        continue;
-                    }
-                    if (comparator.compareLines(lines.get(queryLineIndex), lines.get(timelineIndex))
-                            && lines.get(timelineIndex).getClass().equals(WaitingTimeline.class)) {
+                    if (lines.get(timelineIndex).getClass().equals(WaitingTimeline.class)
+                            && comparator.compareLines(lines.get(queryLineIndex),
+                            lines.get(timelineIndex))) {
                         WaitingTimeline timeline = (WaitingTimeline) lines.get(timelineIndex);
                         minutes += timeline.getWaitingTime();
                         counter += 1;
