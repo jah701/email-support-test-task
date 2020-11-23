@@ -6,11 +6,10 @@ import com.email.support.service.CustomLineComparator;
 import com.email.support.service.CustomLineExecutor;
 import com.email.support.service.CustomLineParser;
 import com.email.support.service.mapper.LineMapper;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 class CustomLineExecutorImplTest {
     private static final String CORRECT_PATH = "src/test/java/resources/file.txt";

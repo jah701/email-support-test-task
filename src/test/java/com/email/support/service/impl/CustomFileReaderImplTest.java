@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 class CustomFileReaderImplTest {
     private static final String WRONG_PATH = "";
     private static final String WRONG_PATH2 = "12";
@@ -39,6 +37,4 @@ class CustomFileReaderImplTest {
     public void correctPathTest_ok() {
         Assertions.assertEquals(7, fileReader.readFile(CORRECT_PATH).size());
     }
-
-
 }
