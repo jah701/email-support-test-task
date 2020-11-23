@@ -6,6 +6,9 @@ public abstract class Line {
     private String responseType;
     private String date;
 
+    public Line() {
+    }
+
     public String getServiceId() {
         return serviceId;
     }

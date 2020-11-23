@@ -11,26 +11,27 @@ public class CustomLineComparatorImpl implements CustomLineComparator {
     private static final String DASH_DELIMITER = "-";
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public boolean compareLines(Line line1, Line line2) {
-        if (!line1.getServiceId().split("")[ZERO_INDEX]
-                .equals(line2.getServiceId().split("")[ZERO_INDEX])) {
+    public boolean compareLines(Line queryLine, Line timeline) {
+        if (!queryLine.getServiceId().split("")[ZERO_INDEX]
+                .equals(timeline.getServiceId().split("")[ZERO_INDEX])) {
             return false;
         }
-        if (!line1.getQuestionType().equals("*") && !line1.getQuestionType().split("")[ZERO_INDEX]
-                .equals(line2.getQuestionType().split("")[ZERO_INDEX])) {
+        if (!timeline.getQuestionType().equals("*")
+                && !queryLine.getQuestionType().split("")[ZERO_INDEX]
+                .equals(timeline.getQuestionType().split("")[ZERO_INDEX])) {
             return false;
         }
-        if (!line1.getResponseType().split("")[ZERO_INDEX]
-                .equals(line2.getResponseType().split("")[ZERO_INDEX])) {
+        if (!queryLine.getResponseType().split("")[ZERO_INDEX]
+                .equals(timeline.getResponseType().split("")[ZERO_INDEX])) {
             return false;
         }
-        if (line1.getDate().length() > MAX_DATE_STRING_SIZE) {
-            return compareDate(line1, line2);
-        } else if (line2.getDate().length() > MAX_DATE_STRING_SIZE) {
-            return compareDate(line2, line1);
+        if (queryLine.getDate().length() > MAX_DATE_STRING_SIZE) {
+            return compareDate(queryLine, timeline);
+        } else if (timeline.getDate().length() > MAX_DATE_STRING_SIZE) {
+            return compareDate(timeline, queryLine);
         } else {
-            return LocalDate.parse(line1.getDate(), FORMATTER)
-                    .compareTo(LocalDate.parse(line2.getDate(), FORMATTER)) == 0;
+            return LocalDate.parse(queryLine.getDate(), FORMATTER)
+                    .compareTo(LocalDate.parse(timeline.getDate(), FORMATTER)) == 0;
         }
     }
 
@@ -39,7 +40,7 @@ public class CustomLineComparatorImpl implements CustomLineComparator {
         LocalDate dateFrom = LocalDate.parse(splitDate[0], FORMATTER);
         LocalDate dateTo = LocalDate.parse(splitDate[1], FORMATTER);
         LocalDate dateToCompare = LocalDate.parse(timeline.getDate(), FORMATTER);
-        return dateToCompare.minusDays(1L).isAfter(dateFrom)
-                && dateToCompare.plusDays(1L).isBefore(dateTo);
+        return dateToCompare.isAfter(dateFrom)
+                && dateToCompare.isBefore(dateTo);
     }
 }
